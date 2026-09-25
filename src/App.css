@@ -1,342 +1,793 @@
-/* App Container & Main Card */
+/* ==========================================================
+   ESTILO BAUHAUS · ARQUITETURA VISUAL E DESIGN MODERNO
+   Aplicação de CSS para Organizador de Tarefas Acadêmicas (Web II)
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   1. ESTRUTURA GERAL & CANVAS BAUHAUS
+   ---------------------------------------------------------- */
 .app-container {
   width: 100%;
 }
 
 .app-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-lg);
-  padding: 2.25rem 2rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  background: var(--bauhaus-white);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem 2.25rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-normal);
 }
 
-/* Header Styles */
+/* ----------------------------------------------------------
+   2. CABEÇALHO BAUHAUS (APP HEADER)
+   ---------------------------------------------------------- */
 .app-header {
-  text-align: center;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--card-border);
-  padding-bottom: 1.5rem;
+  border-bottom: var(--border-thick);
+  padding-bottom: 2rem;
+  margin-bottom: 2.25rem;
+  position: relative;
 }
 
-.header-badge {
-  display: inline-block;
-  background: var(--primary-light);
-  color: #818cf8;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(99, 102, 241, 0.3);
+/* Faixa Geométrica Superior: Kandinsky (Quadrado, Círculo, Triângulo) */
+.bauhaus-accent-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.bauhaus-shape {
+  width: 22px;
+  height: 22px;
+  border: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.bauhaus-shape:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Quadrado Vermelho */
+.shape-red-square {
+  background-color: var(--bauhaus-red);
+}
+
+/* Círculo Azul */
+.shape-blue-circle {
+  background-color: var(--bauhaus-blue);
+  border-radius: 50%;
+}
+
+/* Triângulo Amarelo */
+.shape-yellow-triangle {
+  background-color: var(--bauhaus-yellow);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 22px solid var(--bauhaus-yellow);
+  border-top: none;
+  box-shadow: none;
+  filter: drop-shadow(2px 2px 0px var(--bauhaus-black));
+}
+
+.bauhaus-bar-line {
+  flex: 1;
+  height: 4px;
+  background-color: var(--bauhaus-black);
+}
+
+.header-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 0.75rem;
 }
 
-.app-header h1 {
-  font-size: 1.85rem;
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
   font-weight: 700;
-  color: var(--text-main);
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bauhaus-white);
+  background-color: var(--bauhaus-black);
+  padding: 0.35rem 0.85rem;
+  border: var(--border-thin);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-subtag {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--bauhaus-text-muted);
+}
+
+.header-title {
+  font-family: var(--font-display);
+  font-size: 2.35rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--bauhaus-black);
+  margin-bottom: 0.75rem;
 }
 
 .header-description {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  max-width: 500px;
-  margin: 0 auto;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--bauhaus-text-muted);
+  max-width: 680px;
+  line-height: 1.6;
 }
 
-/* Summary Section */
-.summary-container {
-  margin-bottom: 2rem;
+/* ----------------------------------------------------------
+   3. LAYOUT EM GRID ASSIMÉTRICO (REORGANIZAÇÃO VISUAL)
+   ---------------------------------------------------------- */
+.bauhaus-grid-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 2rem;
+  align-items: start;
 }
 
-.summary-container h2 {
+.bauhaus-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.bauhaus-main-board {
+  min-width: 0;
+}
+
+/* ----------------------------------------------------------
+   4. ETIQUETAS E CABEÇALHOS DE SEÇÃO
+   ---------------------------------------------------------- */
+.section-header-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.15rem;
+  border-bottom: var(--border-medium);
+  padding-bottom: 0.5rem;
+}
+
+.tag-number {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--bauhaus-white);
+  background: var(--bauhaus-black);
+  padding: 0.2rem 0.55rem;
+  border: var(--border-thin);
+}
+
+.section-heading {
+  font-family: var(--font-display);
   font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  color: var(--bauhaus-black);
+}
+
+.task-count-tag {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--bauhaus-yellow);
+  color: var(--bauhaus-black);
+  padding: 0.2rem 0.65rem;
+  border: var(--border-thin);
+  box-shadow: 2px 2px 0px var(--bauhaus-black);
+}
+
+/* ----------------------------------------------------------
+   5. FORMULÁRIO DE NOVA TAREFA (ADDTASKFORM)
+   ---------------------------------------------------------- */
+.add-task-container {
+  background: var(--bauhaus-cream);
+  border: var(--border-medium);
+  box-shadow: var(--shadow-md);
+  padding: 1.35rem 1.25rem;
+}
+
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.input-group {
+  width: 100%;
+}
+
+.task-input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--bauhaus-black);
+  background-color: var(--bauhaus-white);
+  border: var(--border-medium);
+  border-radius: 0;
+  padding: 0.85rem 1rem;
+  box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-fast);
+}
+
+.task-input:focus {
+  outline: none;
+  background-color: var(--bauhaus-white);
+  border-color: var(--bauhaus-black);
+  box-shadow: 3px 3px 0px var(--bauhaus-black);
+}
+
+.task-input::placeholder {
+  color: var(--bauhaus-text-dim);
+  font-size: 0.875rem;
+}
+
+/* ----------------------------------------------------------
+   6. RESUMO DE TAREFAS (TASKSUMMARY)
+   ---------------------------------------------------------- */
+.summary-container {
+  background: var(--bauhaus-white);
+  border: var(--border-medium);
+  box-shadow: var(--shadow-md);
+  padding: 1.35rem 1.25rem;
 }
 
 .summary-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 0.75rem;
   margin-bottom: 1.25rem;
 }
 
 .summary-card {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  padding: 1rem;
+  position: relative;
+  background-color: var(--bauhaus-cream);
+  border: var(--border-thin);
+  box-shadow: var(--shadow-sm);
+  padding: 0.85rem 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: var(--transition);
+  justify-content: center;
+  text-align: center;
+  transition: var(--transition-fast);
 }
 
 .summary-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-md);
+}
+
+/* Indicadores Geométricos Bauhaus nos Cards de Métricas */
+.card-geom-indicator {
+  width: 12px;
+  height: 12px;
+  margin-bottom: 0.4rem;
+  border: 1.5px solid var(--bauhaus-black);
+}
+
+.summary-card.total .card-geom-indicator {
+  background-color: var(--bauhaus-red);
+}
+
+.summary-card.completed .card-geom-indicator {
+  background-color: var(--bauhaus-blue);
+  border-radius: 50%;
+}
+
+.summary-card.pending .card-geom-indicator {
+  background-color: var(--bauhaus-yellow);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid var(--bauhaus-yellow);
+  border-top: none;
+  filter: drop-shadow(1px 1px 0px var(--bauhaus-black));
 }
 
 .card-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.25rem;
+  letter-spacing: 0.05em;
+  color: var(--bauhaus-text-muted);
+  margin-bottom: 0.2rem;
 }
 
 .card-value {
+  font-family: var(--font-display);
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--bauhaus-black);
+  margin-bottom: 0.2rem;
 }
 
-.summary-card.total .card-value {
-  color: var(--primary);
+.card-subtext {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--bauhaus-text-dim);
+  text-transform: lowercase;
 }
 
-.summary-card.completed .card-value {
-  color: var(--success);
+/* Cores específicas dos valores */
+.summary-card.total {
+  border-top: 4px solid var(--bauhaus-red);
+}
+.summary-card.completed {
+  border-top: 4px solid var(--bauhaus-blue);
+}
+.summary-card.pending {
+  border-top: 4px solid var(--bauhaus-yellow);
 }
 
-.summary-card.pending .card-value {
-  color: var(--warning);
-}
-
-/* Conditional Message Box */
+/* Mensagens Condicionais Bauhaus */
 .conditional-message-box {
   margin-top: 0.5rem;
 }
 
 .status-message {
-  padding: 0.85rem 1.15rem;
-  border-radius: var(--radius-md);
-  font-size: 0.925rem;
-  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  animation: fadeIn 0.3s ease-in-out;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: var(--border-thin);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  box-shadow: var(--shadow-sm);
+  animation: bauhausSlideIn 0.25s ease-out;
+}
+
+.message-shape {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--bauhaus-black);
+  flex-shrink: 0;
+}
+
+.message-shape.shape-sq {
+  background-color: var(--bauhaus-black);
+}
+
+.message-shape.shape-ci {
+  background-color: var(--bauhaus-blue);
+  border-radius: 50%;
+}
+
+.message-shape.shape-tr {
+  background-color: var(--bauhaus-yellow);
 }
 
 .status-message.empty {
-  background: rgba(100, 116, 139, 0.15);
-  border: 1px solid rgba(100, 116, 139, 0.3);
-  color: var(--text-muted);
+  background-color: var(--bauhaus-gray-light);
+  color: var(--bauhaus-black);
 }
 
 .status-message.pending-alert {
-  background: var(--warning-light);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  color: #fbbf24;
+  background-color: var(--bauhaus-yellow-subtle);
+  border-color: var(--bauhaus-black);
+  color: var(--bauhaus-black);
 }
 
 .status-message.success-alert {
-  background: var(--success-light);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: #34d399;
+  background-color: var(--bauhaus-blue-subtle);
+  border-color: var(--bauhaus-black);
+  color: var(--bauhaus-blue-hover);
 }
 
-/* Add Task Form */
-.add-task-form {
+/* ----------------------------------------------------------
+   7. LISTA DE TAREFAS (TASKLIST & TASKITEM)
+   ---------------------------------------------------------- */
+.task-list-section {
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.task-input {
-  flex: 1;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  padding: 0.75rem 1rem;
-  color: var(--text-main);
-  font-family: inherit;
-  font-size: 0.95rem;
-  outline: none;
-  transition: var(--transition);
-}
-
-.task-input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
-}
-
-.task-input::placeholder {
-  color: var(--text-dim);
-}
-
-/* Task List Section */
-.task-list-section h2 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  flex-direction: column;
 }
 
 .task-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
+/* Card Individual de Tarefa */
 .task-item {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.25rem;
+  position: relative;
+  background-color: var(--bauhaus-white);
+  border: var(--border-medium);
+  box-shadow: var(--shadow-md);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  transition: var(--transition);
+  align-items: stretch;
+  transition: var(--transition-fast);
+  overflow: hidden;
 }
 
 .task-item:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  background: rgba(15, 23, 42, 0.8);
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg);
 }
 
-.task-item.completed {
-  opacity: 0.75;
+/* Faixa lateral colorida com código Bauhaus */
+.task-indicator-strip {
+  width: 8px;
+  flex-shrink: 0;
+  background-color: var(--bauhaus-yellow);
+  border-right: var(--border-thin);
+  transition: background-color 0.2s ease;
+}
+
+.task-item.completed .task-indicator-strip {
+  background-color: var(--bauhaus-blue);
 }
 
 .task-content {
+  flex: 1;
+  padding: 1.15rem 1.25rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.task-header-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.task-number {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--bauhaus-text-dim);
+}
+
+.task-status {
+  display: inline-flex;
+  align-items: center;
   gap: 0.35rem;
 }
 
+.status-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--bauhaus-text-dim);
+}
+
+/* Badges de Status Construtivistas */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.55rem;
+  border: 1.5px solid var(--bauhaus-black);
+}
+
+.status-icon-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--bauhaus-black);
+}
+
+.badge-pending {
+  background-color: var(--bauhaus-yellow);
+  color: var(--bauhaus-black);
+}
+
+.badge-pending .status-icon-dot {
+  background-color: var(--bauhaus-black);
+}
+
+.badge-completed {
+  background-color: var(--bauhaus-blue);
+  color: var(--bauhaus-white);
+}
+
+.badge-completed .status-icon-dot {
+  background-color: var(--bauhaus-white);
+}
+
 .task-title {
-  font-size: 1rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
   font-weight: 600;
-  color: var(--text-main);
-  transition: var(--transition);
+  color: var(--bauhaus-black);
+  line-height: 1.4;
+  transition: var(--transition-fast);
+}
+
+/* Tarefa Concluída: Estilo Arquiteto */
+.task-item.completed {
+  background-color: #faf9f6;
 }
 
 .task-item.completed .task-title {
   text-decoration: line-through;
-  color: var(--text-muted);
+  text-decoration-thickness: 2.5px;
+  text-decoration-color: var(--bauhaus-blue);
+  color: var(--bauhaus-text-muted);
 }
 
-.task-status {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-/* Status Badges */
-.status-badge {
-  font-size: 0.725rem;
-  font-weight: 600;
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-sm);
-  display: inline-block;
-}
-
-.badge-pending {
-  background: var(--warning-light);
-  color: #fbbf24;
-}
-
-.badge-completed {
-  background: var(--success-light);
-  color: #34d399;
-}
-
-/* Actions & Buttons */
+/* Painel de Ações e Botões */
 .task-actions {
   display: flex;
-  gap: 0.5rem;
   align-items: center;
+  gap: 0.65rem;
+  padding: 1.15rem 1.25rem 1.15rem 0.5rem;
 }
 
+/* ----------------------------------------------------------
+   8. SISTEMA DE BOTÕES BAUHAUS (ESTADOS :HOVER, :ACTIVE)
+   ---------------------------------------------------------- */
 .btn {
-  font-family: inherit;
+  font-family: var(--font-display);
   font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.5rem 0.85rem;
-  border-radius: var(--radius-sm);
-  border: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 1rem;
+  border: var(--border-medium);
+  box-shadow: var(--shadow-btn);
   cursor: pointer;
-  transition: var(--transition);
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: var(--bauhaus-white);
+  color: var(--bauhaus-black);
+  transition: var(--transition-fast);
+  user-select: none;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-btn-hover);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-btn-active);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--bauhaus-black);
+  outline-offset: 2px;
+}
+
+/* Botão Adicionar Tarefa */
+.btn-add {
+  width: 100%;
+  background-color: var(--bauhaus-blue);
+  color: var(--bauhaus-white);
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+}
+
+.btn-add:hover {
+  background-color: var(--bauhaus-black);
+  color: var(--bauhaus-yellow);
+}
+
+.btn-symbol {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Botão Concluir (Azul Bauhaus) */
+.btn-complete {
+  background-color: var(--bauhaus-blue);
+  color: var(--bauhaus-white);
+}
+
+.btn-complete:hover {
+  background-color: var(--bauhaus-black);
+  color: var(--bauhaus-white);
+}
+
+/* Botão Refazer (Amarelo Bauhaus) */
+.btn-undo {
+  background-color: var(--bauhaus-yellow);
+  color: var(--bauhaus-black);
+}
+
+.btn-undo:hover {
+  background-color: var(--bauhaus-black);
+  color: var(--bauhaus-yellow);
+}
+
+/* Botão Excluir (Vermelho Bauhaus) */
+.btn-delete {
+  background-color: var(--bauhaus-red);
+  color: var(--bauhaus-white);
+}
+
+.btn-delete:hover {
+  background-color: var(--bauhaus-black);
+  color: var(--bauhaus-red);
+}
+
+.btn-icon {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+/* ----------------------------------------------------------
+   9. ESTADO VAZIO (EMPTY STATE)
+   ---------------------------------------------------------- */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: var(--bauhaus-cream);
+  border: 2px dashed var(--bauhaus-black);
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.btn-add {
-  background: var(--primary);
-  color: #ffffff;
-  white-space: nowrap;
+.empty-state-geom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.btn-add:hover {
-  background: var(--primary-hover);
-  transform: translateY(-1px);
+.empty-shape-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: var(--border-medium);
+  background-color: var(--bauhaus-yellow);
 }
 
-.btn-complete {
-  background: var(--success-light);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+.empty-shape-line {
+  width: 48px;
+  height: 4px;
+  background-color: var(--bauhaus-black);
 }
 
-.btn-complete:hover {
-  background: var(--success);
-  color: #ffffff;
+.empty-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--bauhaus-black);
+  margin-bottom: 0.5rem;
 }
 
-.btn-undo {
-  background: var(--warning-light);
-  color: #fbbf24;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+.empty-description {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--bauhaus-text-muted);
+  margin-bottom: 0.5rem;
 }
 
-.btn-undo:hover {
-  background: var(--warning);
-  color: #ffffff;
+.empty-hint {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--bauhaus-black);
+  background-color: var(--bauhaus-white);
+  border: var(--border-thin);
+  padding: 0.35rem 0.75rem;
+  box-shadow: 2px 2px 0px var(--bauhaus-black);
 }
 
-.btn-delete {
-  background: var(--danger-light);
-  color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+/* ----------------------------------------------------------
+   10. RODAPÉ INSTITUCIONAL BAUHAUS
+   ---------------------------------------------------------- */
+.app-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: var(--border-thick);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.btn-delete:hover {
-  background: var(--danger);
-  color: #ffffff;
+.footer-brand {
+  display: flex;
+  flex-direction: column;
 }
 
-.empty-state {
-  text-align: center;
-  padding: 2.5rem;
-  background: rgba(15, 23, 42, 0.4);
-  border: 1px dashed var(--card-border);
-  border-radius: var(--radius-md);
-  color: var(--text-muted);
+.footer-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bauhaus-black);
 }
 
-@keyframes fadeIn {
+.footer-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--bauhaus-text-muted);
+}
+
+.footer-geometric-motif {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.motif-square {
+  width: 14px;
+  height: 14px;
+  background-color: var(--bauhaus-red);
+  border: 1.5px solid var(--bauhaus-black);
+}
+
+.motif-circle {
+  width: 14px;
+  height: 14px;
+  background-color: var(--bauhaus-blue);
+  border-radius: 50%;
+  border: 1.5px solid var(--bauhaus-black);
+}
+
+.motif-triangle {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 14px solid var(--bauhaus-yellow);
+  filter: drop-shadow(1px 1px 0px var(--bauhaus-black));
+}
+
+.footer-course-tag {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--bauhaus-black);
+  background-color: var(--bauhaus-cream);
+  border: var(--border-thin);
+  padding: 0.25rem 0.65rem;
+}
+
+/* Animação suave para mensagens */
+@keyframes bauhausSlideIn {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -344,27 +795,69 @@
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 540px) {
+/* ----------------------------------------------------------
+   11. ADAPTAÇÃO RESPONSIVA (@MEDIA QUERIES)
+   ---------------------------------------------------------- */
+/* Telas Médias / Tablets: Reorganização da grade em coluna única */
+@media (max-width: 960px) {
+  .bauhaus-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .header-title {
+    font-size: 2rem;
+  }
+}
+
+/* Telas Menores / Celulares */
+@media (max-width: 640px) {
+  body {
+    padding: 1rem 0.75rem;
+  }
+
   .app-card {
     padding: 1.5rem 1rem;
+    box-shadow: var(--shadow-md);
   }
-  
-  .summary-cards {
-    grid-template-columns: 1fr;
+
+  .header-title {
+    font-size: 1.6rem;
   }
-  
-  .add-task-form {
-    flex-direction: column;
-  }
-  
-  .task-item {
+
+  .header-meta-row {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .summary-card {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  .card-value {
+    font-size: 1.5rem;
+  }
+
+  .task-item {
+    flex-direction: column;
+  }
+
   .task-actions {
     width: 100%;
+    padding: 0 1.25rem 1.15rem 1.25rem;
     justify-content: flex-end;
+  }
+
+  .app-footer {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

@@ -1,59 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+/* ==========================================================
+   ESTILO BAUHAUS · ESCOLA DE DESIGN E ARQUITETURA (1919-1933)
+   Princípios: Forma Segue a Função, Cores Primárias, Geometria Pura
+   Projeto: Trabalho Web II - Aplicação React com CSS
+   ========================================================== */
 
 :root {
-  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  /* Paleta Bauhaus Primária Clássica */
+  --bauhaus-black: #121212;
+  --bauhaus-white: #ffffff;
+  --bauhaus-cream: #f4efe6;
+  --bauhaus-cream-dark: #ebe3d3;
   
-  --bg-color: #0f172a;
-  --card-bg: rgba(30, 41, 59, 0.7);
-  --card-border: rgba(255, 255, 255, 0.08);
+  --bauhaus-red: #d82424;
+  --bauhaus-red-hover: #b71b1b;
+  --bauhaus-red-subtle: #fbebea;
   
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --primary-light: rgba(99, 102, 241, 0.15);
+  --bauhaus-blue: #184ca1;
+  --bauhaus-blue-hover: #10387d;
+  --bauhaus-blue-subtle: #eaf1fb;
   
-  --success: #10b981;
-  --success-light: rgba(16, 185, 129, 0.15);
+  --bauhaus-yellow: #f4ba06;
+  --bauhaus-yellow-hover: #dba603;
+  --bauhaus-yellow-subtle: #fdf8e6;
   
-  --warning: #f59e0b;
-  --warning-light: rgba(245, 158, 11, 0.15);
+  --bauhaus-gray-light: #eae5da;
+  --bauhaus-text: #121212;
+  --bauhaus-text-muted: #4a4a4a;
+  --bauhaus-text-dim: #7a7a7a;
+
+  /* Tipografia Bauhaus: Grotesk Geométrica */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Estrutura & Traços Construtivistas */
+  --border-thick: 3px solid var(--bauhaus-black);
+  --border-medium: 2.5px solid var(--bauhaus-black);
+  --border-thin: 2px solid var(--bauhaus-black);
   
-  --danger: #ef4444;
-  --danger-hover: #dc2626;
-  --danger-light: rgba(239, 68, 68, 0.15);
-  
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
-  
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  
-  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Sombras Duras Ortogonais (Hard Cast Shadows) */
+  --shadow-lg: 8px 8px 0px var(--bauhaus-black);
+  --shadow-md: 5px 5px 0px var(--bauhaus-black);
+  --shadow-sm: 3px 3px 0px var(--bauhaus-black);
+  --shadow-btn: 3px 3px 0px var(--bauhaus-black);
+  --shadow-btn-hover: 5px 5px 0px var(--bauhaus-black);
+  --shadow-btn-active: 1px 1px 0px var(--bauhaus-black);
+
+  /* Transições Precisas */
+  --transition-fast: all 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-normal: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-* {
+/* Reset Universal & Box Sizing */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: var(--font-family);
-  background-color: var(--bg-color);
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
-  color: var(--text-main);
+  font-family: var(--font-body);
+  background-color: var(--bauhaus-cream);
+  color: var(--bauhaus-text);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1.25rem;
   line-height: 1.5;
+  
+  /* Padrão de fundo construtivista: Grade ortogonal técnica Bauhaus */
+  background-image: 
+    linear-gradient(to right, rgba(18, 18, 18, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18, 18, 18, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center top;
 }
 
 #root {
   width: 100%;
-  max-width: 680px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Seleção de texto no padrão Bauhaus */
+::selection {
+  background-color: var(--bauhaus-yellow);
+  color: var(--bauhaus-black);
 }

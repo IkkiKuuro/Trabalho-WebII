@@ -48,21 +48,46 @@ function App() {
   return (
     <div className="app-container">
       <div className="app-card">
+        {/* Cabeçalho da Aplicação */}
         <Header />
-        
-        <TaskSummary
-          total={total}
-          concluidas={concluidas}
-          pendentes={pendentes}
-        />
 
-        <AddTaskForm onAddTask={handleAddTask} />
+        {/* Layout Bauhaus com reposicionamento dos elementos em Grid Assimétrico */}
+        <div className="bauhaus-grid-layout">
+          {/* Coluna Lateral: Controles e Métricas */}
+          <aside className="bauhaus-sidebar">
+            <AddTaskForm onAddTask={handleAddTask} />
+            <TaskSummary
+              total={total}
+              concluidas={concluidas}
+              pendentes={pendentes}
+            />
+          </aside>
 
-        <TaskList
-          tarefas={tarefas}
-          onToggle={handleToggleTask}
-          onDelete={handleDeleteTask}
-        />
+          {/* Coluna Principal: Mural de Tarefas */}
+          <main className="bauhaus-main-board">
+            <TaskList
+              tarefas={tarefas}
+              onToggle={handleToggleTask}
+              onDelete={handleDeleteTask}
+            />
+          </main>
+        </div>
+
+        {/* Rodapé Institucional Bauhaus */}
+        <footer className="app-footer">
+          <div className="footer-brand">
+            <span className="footer-title">Staatliches Bauhaus</span>
+            <span className="footer-subtitle">Forma & Função · Weimar 1919 — Dessau 1925</span>
+          </div>
+          <div className="footer-geometric-motif" aria-hidden="true">
+            <span className="motif-square"></span>
+            <span className="motif-circle"></span>
+            <span className="motif-triangle"></span>
+          </div>
+          <div className="footer-course-tag">
+            <span>Web II · Atividade Prática de CSS</span>
+          </div>
+        </footer>
       </div>
     </div>
   );
