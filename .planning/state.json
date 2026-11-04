@@ -1,0 +1,33 @@
+{
+  "contract": "1.0.0",
+  "flavor": "core",
+  "milestone": null,
+  "phases": [
+    {
+      "number": "1",
+      "name": "Setup da Base e Design System",
+      "status": "pending"
+    },
+    {
+      "number": "2",
+      "name": "Apresentação da Arena e Landing Page",
+      "status": "pending"
+    },
+    {
+      "number": "3",
+      "name": "Formulário de Cadastro e Controle de Estado",
+      "status": "pending"
+    },
+    {
+      "number": "4",
+      "name": "Responsividade, Polimento e Preparação",
+      "status": "pending"
+    }
+  ],
+  "next": {
+    "command": "/gsd-progress --next",
+    "label": "Advance to the next step",
+    "reason": "Phase 1 of 4 · 0% · executing"
+  },
+  "updated_at": "2026-11-04T14:22:14.100Z"
+}
