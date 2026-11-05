@@ -1,0 +1,38 @@
+/**
+ * Estilização do componente didático BadgeExemplo
+ * Utiliza as variáveis semânticas do Design System (:root)
+ */
+
+.badge-exemplo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+}
+
+/* Variante: Destaque (Terracotta Sunset) */
+.badge-exemplo--destaque {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Variante: Esporte (Ocean Blue) */
+.badge-exemplo--esporte {
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary-dark);
+  border: 1px solid var(--color-secondary);
+}
+
+/* Variante: Aviso / Ouro Solar (Solar Sand Gold) */
+.badge-exemplo--solar {
+  background-color: var(--color-tertiary-light);
+  color: var(--color-tertiary-dark);
+}
