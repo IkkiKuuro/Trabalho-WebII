@@ -1,0 +1,128 @@
+/**
+ * ==============================================================================
+ * ARENA SUNSET - DESIGN SYSTEM (VARIÁVEIS CSS)
+ * ==============================================================================
+ * Este arquivo centraliza todos os tokens de design da aplicação Arena Sunset,
+ * baseados nas especificações do guia visual 'sunset_sand_sports.md'.
+ *
+ * Conceito Didático (CSS Custom Properties):
+ * O uso de variáveis no :root permite reutilização, fácil manutenção e
+ * consistência em toda a interface sem a necessidade de frameworks externos.
+ * ==============================================================================
+ */
+
+:root {
+  /* ----------------------------------------------------------------------------
+   * 1. PALETA DE CORES PRINCIPAL
+   * ---------------------------------------------------------------------------- */
+  /* Primária: Terracotta Sunset (Ação principal, destaques, botões CTA) */
+  --color-primary: #F97316;
+  --color-primary-dark: #EA580C;
+  --color-primary-hover: #EA580C;
+  --color-primary-light: #FFDBCA;
+
+  /* Secundária: Ocean Blue (Foco atlético, contraste e elementos estruturais) */
+  --color-secondary: #0284C7;
+  --color-secondary-dark: #0369A1;
+  --color-secondary-light: #CCE5FF;
+
+  /* Terciária: Solar Sand Gold (Badges diurnos, estrelas e microdestaques) */
+  --color-tertiary: #FBBF24;
+  --color-tertiary-dark: #B45309;
+  --color-tertiary-light: #FEF3C7;
+
+  /* ----------------------------------------------------------------------------
+   * 2. CORES NEUTRAS E SUPERFÍCIES
+   * ---------------------------------------------------------------------------- */
+  /* Background: Areia fina de dunas tropicais */
+  --color-bg: #FDFBF7;
+
+  /* Superfícies: Cartões e containers */
+  --color-surface: #FFFFFF;
+  --color-surface-sand: #F5EFEB;
+
+  /* Tipografia: Textos e contrastes */
+  --color-text: #0F172A;
+  --color-text-muted: #584237;
+
+  /* Bordas: Linhas sutis com tom terroso */
+  --color-border: #E2D9CE;
+  --color-border-subtle: rgba(15, 23, 42, 0.08);
+  --color-border-focus: rgba(249, 115, 22, 0.4);
+
+  /* ----------------------------------------------------------------------------
+   * 3. FEEDBACK E STATUS
+   * ---------------------------------------------------------------------------- */
+  --color-success: #15803D;
+  --color-success-bg: #DCFCE7;
+  --color-warning: #B45309;
+  --color-warning-bg: #FEF3C7;
+  --color-error: #DC2626;
+  --color-error-bg: #FEE2E2;
+
+  /* ----------------------------------------------------------------------------
+   * 4. TIPOGRAFIA (Plus Jakarta Sans)
+   * ---------------------------------------------------------------------------- */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-md: 1rem;       /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 2rem;      /* 32px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.65;
+
+  /* ----------------------------------------------------------------------------
+   * 5. ESPAÇAMENTOS (Base modular 4px / 8px)
+   * ---------------------------------------------------------------------------- */
+  --space-xs: 0.25rem;  /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2.5rem;   /* 40px */
+  --space-2xl: 4rem;    /* 64px */
+
+  /* ----------------------------------------------------------------------------
+   * 6. ARREDONDAMENTO DE BORDAS (Border Radius)
+   * ---------------------------------------------------------------------------- */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
+
+  /* ----------------------------------------------------------------------------
+   * 7. SOMBRAS COM DIFUSÃO SUAVE E TONS QUENTES
+   * ---------------------------------------------------------------------------- */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(249, 115, 22, 0.04);
+  --shadow-hover: 0 8px 30px -4px rgba(15, 23, 42, 0.1), 0 4px 10px -2px rgba(249, 115, 22, 0.08);
+  --shadow-cta: 0 10px 20px -5px rgba(249, 115, 22, 0.35);
+  --shadow-modal: 0 20px 35px -5px rgba(15, 23, 42, 0.12), 0 8px 16px -2px rgba(249, 115, 22, 0.08);
+
+  /* ----------------------------------------------------------------------------
+   * 8. TRANSIÇÕES E ANIMAÇÕES
+   * ---------------------------------------------------------------------------- */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-smooth: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ----------------------------------------------------------------------------
+   * 9. CONTAINER E LAYOUT
+   * ---------------------------------------------------------------------------- */
+  --container-max-width: 1280px;
+}
