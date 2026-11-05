@@ -53,7 +53,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 03-01: Construção do formulário de cadastro, manipuladores de evento, controle com useState e lista reativa
+- [ ] 03-01-PLAN.md — Construção do formulário de cadastro, manipuladores de evento, controle com useState e lista reativa
 
 ### Phase 4: Responsividade, Polimento e Preparação da Apresentação
 **Goal**: Garantir a responsividade perfeita em dispositivos móveis e desktops, adicionar o componente Footer com dados institucionais e incluir documentação/comentários didáticos no código para fundamentar a arguição oral com o professor.
