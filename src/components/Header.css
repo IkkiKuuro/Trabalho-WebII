@@ -1,0 +1,153 @@
+/**
+ * ==============================================================================
+ * ESTILOS DO COMPONENTE: Header.css
+ * ==============================================================================
+ * Cabeçalho fixo no topo com efeito blur (vidro fosco), alinhamento flexível
+ * e links de âncoras locais estilizados com os tokens de design da Arena Sunset.
+ * ==============================================================================
+ */
+
+.header-principal {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(253, 251, 247, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-normal);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem; /* 72px */
+  gap: var(--space-md);
+}
+
+/* ----------------------------------------------------------------------------
+ * Logotipo e Marca
+ * ---------------------------------------------------------------------------- */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform var(--transition-fast);
+}
+
+.header-logo:hover {
+  transform: translateY(-1px);
+}
+
+.header-logo-icone {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, #FED7AA 100%);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(249, 115, 22, 0.2);
+  flex-shrink: 0;
+}
+
+.header-logo-textos {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-logo-titulo {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: var(--line-height-tight);
+}
+
+.header-logo-subtitulo {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+}
+
+/* ----------------------------------------------------------------------------
+ * Navegação Semântica
+ * ---------------------------------------------------------------------------- */
+.header-nav-lista {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav-link {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.header-nav-link:hover {
+  color: var(--color-primary);
+  background-color: var(--color-surface-sand);
+}
+
+/* Botão de Destaque no Menu (CTA Cadastro) */
+.header-nav-link--cta {
+  background-color: var(--color-primary);
+  color: #FFFFFF !important;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-bold);
+  box-shadow: var(--shadow-cta);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.header-nav-link--cta:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -6px rgba(249, 115, 22, 0.45);
+}
+
+/* ----------------------------------------------------------------------------
+ * Responsividade para Dispositivos Móveis
+ * ---------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .header-container {
+    height: auto;
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  .header-nav-lista {
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header-nav-link {
+    font-size: var(--font-size-xs);
+    padding: var(--space-xs) var(--space-xs);
+  }
+
+  .header-nav-link--cta {
+    padding: 0.4rem 0.85rem;
+  }
+}
