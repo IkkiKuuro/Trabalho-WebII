@@ -14,16 +14,16 @@
 
 ### Cadastro de Clientes (FORM)
 
-- [ ] **FORM-01**: Usuário visualiza formulário estruturado com campos para Nome Completo, E-mail, Telefone e Seleção de Modalidade
-- [ ] **FORM-02**: Usuário seleciona sua modalidade de interesse entre Beach Tennis, Futevôlei e Vôlei de Praia
-- [ ] **FORM-03**: Aplicação valida o preenchimento dos campos obrigatórios no envio, impedindo o recarregamento (`e.preventDefault()`) e exibindo erros visuais amigáveis
-- [ ] **FORM-04**: Usuário recebe mensagem visual de confirmação na interface quando o cadastro é concluído com sucesso
-- [ ] **FORM-05**: Aplicação limpa automaticamente os campos do formulário após envio bem-sucedido para permitir novo cadastro
+- [x] **FORM-01**: Usuário visualiza formulário estruturado com campos para Nome Completo, E-mail, Telefone e Seleção de Modalidade
+- [x] **FORM-02**: Usuário seleciona sua modalidade de interesse entre Beach Tennis, Futevôlei e Vôlei de Praia
+- [x] **FORM-03**: Aplicação valida o preenchimento dos campos obrigatórios no envio, impedindo o recarregamento (`e.preventDefault()`) e exibindo erros visuais amigáveis
+- [x] **FORM-04**: Usuário recebe mensagem visual de confirmação na interface quando o cadastro é concluído com sucesso
+- [x] **FORM-05**: Aplicação limpa automaticamente os campos do formulário após envio bem-sucedido para permitir novo cadastro
 
 ### Gerenciamento de Estado e Reatividade (STATE)
 
-- [ ] **STATE-01**: Aplicação gerencia os inputs do formulário de forma controlada utilizando o Hook `useState`
-- [ ] **STATE-02**: Aplicação armazena em memória durante a execução a lista de clientes cadastrados e renderiza esses cadastros na interface de forma reativa
+- [x] **STATE-01**: Aplicação gerencia os inputs do formulário de forma controlada utilizando o Hook `useState`
+- [x] **STATE-02**: Aplicação armazena em memória durante a execução a lista de clientes cadastrados e renderiza esses cadastros na interface de forma reativa
 
 ### Fundamentos Técnicos e Didática (TECH)
 
@@ -57,13 +57,13 @@
 | HOME-02 | Phase 2 | Complete |
 | HOME-03 | Phase 2 | Complete |
 | HOME-04 | Phase 2 | Complete |
-| FORM-01 | Phase 3 | Pending |
-| FORM-02 | Phase 3 | Pending |
-| FORM-03 | Phase 3 | Pending |
-| FORM-04 | Phase 3 | Pending |
-| FORM-05 | Phase 3 | Pending |
-| STATE-01 | Phase 3 | Pending |
-| STATE-02 | Phase 3 | Pending |
+| FORM-01 | Phase 3 | Complete |
+| FORM-02 | Phase 3 | Complete |
+| FORM-03 | Phase 3 | Complete |
+| FORM-04 | Phase 3 | Complete |
+| FORM-05 | Phase 3 | Complete |
+| STATE-01 | Phase 3 | Complete |
+| STATE-02 | Phase 3 | Complete |
 | TECH-01 | Phase 1 | Complete |
 | TECH-02 | Phase 1 | Complete |
 | TECH-03 | Phase 1 | Complete |
