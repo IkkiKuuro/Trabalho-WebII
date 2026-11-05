@@ -1,0 +1,121 @@
+/**
+ * ==============================================================================
+ * ESTILIZAÇÃO: ListaAtletas.css (Arena Sunset)
+ * ==============================================================================
+ *
+ * Estilos para o cabeçalho de listagem, empty state instrutivo e grade responsiva
+ * de cards dos praticantes cadastrados na Arena Sunset.
+ * ==============================================================================
+ */
+
+.lista-atletas-secao {
+  margin-top: var(--space-2xl);
+}
+
+/* ----------------------------------------------------------------------------
+ * Cabeçalho da Listagem
+ * ---------------------------------------------------------------------------- */
+.lista-atletas-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.lista-atletas-titulo {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: var(--line-height-tight);
+  margin: 0;
+}
+
+.lista-atletas-subtitulo {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-normal);
+  margin: var(--space-xs) 0 0 0;
+}
+
+.badge-contador {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------------------------------
+ * Estado Vazio (Empty State)
+ * ---------------------------------------------------------------------------- */
+.lista-vazia {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  background-color: var(--color-surface);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-2xl);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.icone-vazio-container {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-sand);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md) auto;
+}
+
+.titulo-vazio {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.texto-vazio {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-normal);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------------------------------------------
+ * Grade Responsiva de Cards de Atletas
+ * ---------------------------------------------------------------------------- */
+.grade-atletas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+/* ----------------------------------------------------------------------------
+ * Responsividade
+ * ---------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .lista-atletas-cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .badge-contador {
+    align-self: flex-start;
+  }
+
+  .grade-atletas {
+    grid-template-columns: 1fr;
+  }
+}

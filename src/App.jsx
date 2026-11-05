@@ -4,6 +4,7 @@ import Hero from './components/Hero.jsx'
 import Modalidades from './components/Modalidades.jsx'
 import Diferenciais from './components/Diferenciais.jsx'
 import FormularioCadastro from './components/FormularioCadastro.jsx'
+import ListaAtletas from './components/ListaAtletas.jsx'
 
 /**
  * ==============================================================================
@@ -12,7 +13,7 @@ import FormularioCadastro from './components/FormularioCadastro.jsx'
  *
  * CONCEITOS IMPORTANTES PARA A DEFESA / APRESENTAÇÃO:
  *
- * 1. GERENCIAMENTO DE ESTADO CENTRALIZADO (State Management com useState):
+ * 1. GERENCIAMENTO CENTRALIZADO DE ESTADO (State Management com useState):
  *    O React opera sob o princípio da reatividade: quando o estado de um componente
  *    muda, o React recalcula a renderização daquele componente e de seus filhos.
  *    Aqui, o estado 'atletas' reside no topo da árvore de componentes (em 'App'),
@@ -20,23 +21,28 @@ import FormularioCadastro from './components/FormularioCadastro.jsx'
  *    fonte de dados sem conflitos.
  *
  * 2. ELEVAÇÃO DE ESTADO (Lifting State Up):
- *    Quando dois componentes irmãos precisam compartilhar dados (ex: o 'FormularioCadastro'
- *    produz novos atletas e a 'ListaAtletas' precisa exibi-los), elevamos o estado para
+ *    Quando dois componentes irmãos precisam compartilhar dados (ex: 'FormularioCadastro'
+ *    produz novos atletas e 'ListaAtletas' precisa exibi-los), elevamos o estado para
  *    o ancestral comum mais próximo ('App'). O componente pai provê:
- *    - O estado atual ('atletas') como propriedade (prop) para o consumidor.
+ *    - O estado atual ('atletas') como propriedade (prop) para o consumidor ('ListaAtletas').
  *    - Uma função manipuladora ('handleCadastrarAtleta') repassada como prop de retorno
- *      (callback prop) para o produtor.
+ *      (callback prop) para o produtor ('FormularioCadastro').
  *
- * 3. IMUTABILIDADE NO REACT:
+ * 3. IMUTABILIDADE NO GERENCIAMENTO DE ESTADO:
  *    Ao atualizar estados no React, NUNCA devemos modificar o array original diretamente
- *    com métodos mutáveis como '.push()' ou '.splice()'. Em vez disso, geramos um novo
- *    array utilizando o spread operator ('[novoAtleta, ...prev]'), garantindo que o React
- *    detecte a alteração por comparação de referência e acione a re-renderização.
+ *    com métodos mutáveis como '.push()' ou '.splice()'.
+ *    - Inclusão: utilizamos o spread operator ('[novoAtleta, ...prev]'), inserindo o
+ *      novo elemento no início e preservando os anteriores.
+ *    - Remoção: utilizamos o método '.filter(atleta => atleta.id !== id)', que retorna
+ *      um novo array excluindo apenas o item correspondente ao id informado.
+ *    Isso garante que o React detecte a alteração por comparação de referência e acione
+ *    a re-renderização imediata da interface.
  *
- * 4. ARQUITETURA EM ÁRVORE DO REACT (Component Tree):
- *    No React, a interface é estruturada como uma árvore de componentes onde 'App'
- *    atua como o nó raiz (root node). Cada seção visual especializada (Header,
- *    Hero, Modalidades, Diferenciais, Formulario/Listagem) é um componente modular.
+ * 4. RENDERIZAÇÃO CONDICIONAL E LISTAS COM CHAVE ÚNICA ('key'):
+ *    - O componente 'ListaAtletas' implementa a transição entre zero atletas (Empty State)
+ *      e múltiplos atletas (Grade responsiva).
+ *    - Cada item mapeado com '.map()' recebe obrigatoriamente a prop 'key={atleta.id}',
+ *      permitindo ao Virtual DOM rastrear cada nó de forma eficiente.
  * ==============================================================================
  */
 function App() {
@@ -69,6 +75,15 @@ function App() {
     setAtletas((prev) => [novoAtleta, ...prev])
   }
 
+  /**
+   * Remove um atleta do estado central por seu identificador único
+   * @param {string} id - Identificador único do atleta a ser excluído
+   */
+  const handleRemoverAtleta = (id) => {
+    // Filtragem imutável: gera novo array contendo apenas os atletas cujo id é diferente
+    setAtletas((prev) => prev.filter((atleta) => atleta.id !== id))
+  }
+
   return (
     <div className="app-arena-sunset">
       {/* 1. Cabeçalho Fixo com Navegação Suave */}
@@ -85,76 +100,17 @@ function App() {
         {/* Seção com Cards dos 4 Diferenciais da Infraestrutura (id="diferenciais") */}
         <Diferenciais />
 
-        {/* Seção Interativa de Cadastro de Atletas (id="cadastro") */}
+        {/* Seção Interativa de Cadastro e Listagem de Atletas (id="cadastro") */}
         <section id="cadastro" className="cadastro-secao">
           <div className="container">
-            {/* Componente Controlado de Formulário de Cadastro */}
+            {/* Formulário Controlado para Registro de Atletas */}
             <FormularioCadastro onCadastrarAtleta={handleCadastrarAtleta} />
 
-            {/* Listagem preliminar do tracer vertical para validação de reatividade */}
-            <div style={{
-              marginTop: 'var(--space-xl)',
-              padding: 'var(--space-lg)',
-              backgroundColor: 'var(--color-surface)',
-              borderRadius: 'var(--radius-xl)',
-              border: '1px solid var(--color-border)',
-              maxWidth: '680px',
-              marginLeft: 'auto',
-              marginRight: 'auto'
-            }}>
-              <h4 style={{
-                margin: '0 0 var(--space-md) 0',
-                color: 'var(--color-text)',
-                fontSize: 'var(--font-size-md)',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-              }}>
-                <span>Atletas Inscritos (Tracer Vertical)</span>
-                <span style={{
-                  fontSize: 'var(--font-size-xs)',
-                  backgroundColor: 'var(--color-primary-light)',
-                  color: 'var(--color-primary-dark)',
-                  padding: '2px 8px',
-                  borderRadius: 'var(--radius-full)'
-                }}>
-                  {atletas.length} {atletas.length === 1 ? 'atleta' : 'atletas'}
-                </span>
-              </h4>
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--space-xs)'
-              }}>
-                {atletas.map((atleta) => (
-                  <li
-                    key={atleta.id}
-                    style={{
-                      padding: 'var(--space-sm) var(--space-md)',
-                      backgroundColor: 'var(--color-surface-sand)',
-                      borderRadius: 'var(--radius-md)',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      fontSize: 'var(--font-size-sm)'
-                    }}
-                  >
-                    <span style={{ fontWeight: 600, color: 'var(--color-text)' }}>
-                      {atleta.nome}
-                    </span>
-                    <span style={{
-                      color: 'var(--color-primary-dark)',
-                      textTransform: 'capitalize'
-                    }}>
-                      {atleta.modalidade.replace('-', ' ')}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* Listagem Reativa de Atletas Cadastrados com Remoção e Empty State */}
+            <ListaAtletas
+              atletas={atletas}
+              onRemoverAtleta={handleRemoverAtleta}
+            />
           </div>
         </section>
       </main>

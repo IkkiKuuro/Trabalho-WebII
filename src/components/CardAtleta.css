@@ -1,0 +1,157 @@
+/**
+ * ==============================================================================
+ * ESTILIZAÇÃO: CardAtleta.css (Arena Sunset)
+ * ==============================================================================
+ *
+ * Estilos para o card individual de exibição de atletas cadastrados.
+ * Totalmente integrado às variáveis CSS do tema esportivo de areia.
+ * ==============================================================================
+ */
+
+.card-atleta {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+}
+
+.card-atleta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: #D6C7B8;
+}
+
+/* ----------------------------------------------------------------------------
+ * Topo do Card (Badge de Modalidade e Ação Destrutiva)
+ * ---------------------------------------------------------------------------- */
+.card-atleta-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.badge-modalidade {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Variações de cor das badges por modalidade */
+.badge-beach-tennis {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+.badge-futevolei {
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary-dark);
+}
+
+.badge-volei-praia {
+  background-color: var(--color-tertiary-light);
+  color: var(--color-tertiary-dark);
+}
+
+.badge-padrao {
+  background-color: var(--color-surface-sand);
+  color: var(--color-text-muted);
+}
+
+/* Botão de Remoção de Atleta */
+.btn-remover-atleta {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: #94A3B8;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-remover-atleta:hover {
+  color: var(--color-error);
+  background-color: var(--color-error-bg);
+  transform: scale(1.05);
+}
+
+.btn-remover-atleta:focus-visible {
+  outline: 2px solid var(--color-error);
+  outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------------------------
+ * Nome do Atleta (com proteção contra quebra de layout)
+ * ---------------------------------------------------------------------------- */
+.atleta-nome {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: var(--line-height-tight);
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* ----------------------------------------------------------------------------
+ * Dados de Contato
+ * ---------------------------------------------------------------------------- */
+.atleta-dados {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: 2px;
+}
+
+.dado-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  overflow: hidden;
+}
+
+.dado-icone {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.dado-valor {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ----------------------------------------------------------------------------
+ * Rodapé do Card
+ * ---------------------------------------------------------------------------- */
+.card-atleta-rodape {
+  margin-top: auto;
+  padding-top: var(--space-xs);
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.atleta-registro {
+  font-size: var(--font-size-xs);
+  color: #8C786E;
+  font-style: italic;
+}
