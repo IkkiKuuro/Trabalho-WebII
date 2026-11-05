@@ -1,0 +1,141 @@
+/**
+ * ==============================================================================
+ * ESTILOS DO COMPONENTE: CardModalidade.css
+ * ==============================================================================
+ * Card esportivo moderno com efeito hover lift, sombra suave e tokens de design.
+ * ==============================================================================
+ */
+
+.card-modalidade {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-modalidade:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-border-focus);
+}
+
+/* Faixa sutil no topo do card ao passar o mouse */
+.card-modalidade::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.card-modalidade:hover::before {
+  opacity: 1;
+}
+
+/* Cabeçalho: Ícone e Badge */
+.card-modalidade-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+  gap: var(--space-sm);
+}
+
+.card-modalidade-icone {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--color-surface-sand) 0%, var(--color-primary-light) 100%);
+  color: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.card-modalidade-badge {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-sand);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+/* Tipografia do Card */
+.card-modalidade-titulo {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  line-height: var(--line-height-tight);
+}
+
+.card-modalidade-descricao {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-lg);
+  flex-grow: 1;
+}
+
+/* Lista de Detalhes da Modalidade */
+.card-modalidade-detalhes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-xl) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.card-modalidade-detalhe-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+}
+
+.card-modalidade-check {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* Rodapé com Link / Ação do Card */
+.card-modalidade-rodape {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: var(--space-md);
+  margin-top: auto;
+}
+
+.card-modalidade-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.card-modalidade-link:hover {
+  color: var(--color-primary-dark);
+  transform: translateX(4px);
+}

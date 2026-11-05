@@ -1,0 +1,85 @@
+/**
+ * ==============================================================================
+ * ESTILOS DO COMPONENTE: Modalidades.css
+ * ==============================================================================
+ * Seção de apresentação dos esportes em grid responsivo com cards elevados.
+ * ==============================================================================
+ */
+
+.modalidades-secao {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  background-color: var(--color-bg);
+}
+
+.modalidades-cabecalho {
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-2xl);
+}
+
+.modalidades-categoria {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.modalidades-titulo {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
+}
+
+.modalidades-subtitulo {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Grid de Cards das Modalidades */
+.modalidades-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+/* ----------------------------------------------------------------------------
+ * Responsividade para Telas Menores
+ * ---------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .modalidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .modalidades-secao {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  .modalidades-titulo {
+    font-size: var(--font-size-2xl);
+  }
+
+  .modalidades-subtitulo {
+    font-size: var(--font-size-md);
+  }
+
+  .modalidades-cabecalho {
+    margin-bottom: var(--space-xl);
+  }
+
+  .modalidades-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
