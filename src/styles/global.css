@@ -110,3 +110,102 @@ input, select, textarea {
     padding-right: var(--space-xl);
   }
 }
+
+/* ----------------------------------------------------------------------------
+ * SEÇÃO PREVIEW DE CADASTRO (Fase 02 - Ancoragem para Fase 03)
+ * ---------------------------------------------------------------------------- */
+.cadastro-preview-secao {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  background-color: var(--color-bg);
+}
+
+.cadastro-preview-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .cadastro-preview-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2xl);
+  }
+}
+
+.cadastro-preview-conteudo {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  max-width: 650px;
+}
+
+.cadastro-preview-icone {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, #FED7AA 100%);
+  color: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cadastro-preview-tag {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  background-color: var(--color-surface-sand);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+}
+
+.cadastro-preview-titulo {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.cadastro-preview-texto {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+.cadastro-preview-aviso {
+  background-color: var(--color-surface-sand);
+  border: 1px dashed var(--color-primary);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.cadastro-preview-aviso-titulo {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-dark);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.cadastro-preview-aviso-sub {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
