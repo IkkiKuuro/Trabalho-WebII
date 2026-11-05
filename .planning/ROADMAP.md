@@ -39,7 +39,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 02-01: Implementação dos componentes da Landing Page com props funcionais e navegação por âncoras
+- [ ] 02-01-PLAN.md — Implementação dos componentes da Landing Page com props funcionais e navegação por âncoras
 
 ### Phase 3: Formulário de Cadastro e Controle de Estado
 **Goal**: Implementar o formulário de cadastro de clientes com inputs controlados via `useState`, validação de campos obrigatórios, tratamento de eventos (`onSubmit` com prevenção de recarregamento), feedback visual de sucesso/erro, limpeza automática e exibição dos clientes cadastrados em memória na sessão.
