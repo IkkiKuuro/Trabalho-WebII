@@ -27,9 +27,9 @@
 
 ### Fundamentos Técnicos e Didática (TECH)
 
-- [ ] **TECH-01**: Aplicação estruturada com React e Vite (JavaScript JSX), dividida em componentes funcionais reutilizáveis
-- [ ] **TECH-02**: Comunicação entre componentes realizada via props com desestruturação clara de propriedades
-- [ ] **TECH-03**: Estilização desenvolvida com CSS puro modular e variáveis CSS customizadas baseadas no design system `sunset_sand_sports.md` (sem bibliotecas externas)
+- [x] **TECH-01**: Aplicação estruturada com React e Vite (JavaScript JSX), dividida em componentes funcionais reutilizáveis
+- [x] **TECH-02**: Comunicação entre componentes realizada via props com desestruturação clara de propriedades
+- [x] **TECH-03**: Estilização desenvolvida com CSS puro modular e variáveis CSS customizadas baseadas no design system `sunset_sand_sports.md` (sem bibliotecas externas)
 - [ ] **TECH-04**: Layout responsivo adaptado com consistência visual para telas de desktop, tablets e dispositivos móveis
 
 ## v2 Requirements (Incrementos Posteriores)
@@ -64,9 +64,9 @@
 | FORM-05 | Phase 3 | Pending |
 | STATE-01 | Phase 3 | Pending |
 | STATE-02 | Phase 3 | Pending |
-| TECH-01 | Phase 1 | Pending |
-| TECH-02 | Phase 1 | Pending |
-| TECH-03 | Phase 1 | Pending |
+| TECH-01 | Phase 1 | Complete |
+| TECH-02 | Phase 1 | Complete |
+| TECH-03 | Phase 1 | Complete |
 | TECH-04 | Phase 4 | Pending |
 
 **Coverage:**
