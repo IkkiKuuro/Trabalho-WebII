@@ -7,7 +7,7 @@ Construção incremental da aplicação web da Arena Sunset com React e Vite, fo
 ## Phases
 
 - [x] **Phase 1: Setup da Base e Design System** - Inicialização do ambiente Vite + React e definição de variáveis CSS a partir do Sunset Sand Sports (completed 2026-11-05)
-- [ ] **Phase 2: Apresentação da Arena e Landing Page** - Construção dos componentes visuais (Header, Hero, Modalidades e Diferenciais) com props
+- [x] **Phase 2: Apresentação da Arena e Landing Page** - Construção dos componentes visuais (Header, Hero, Modalidades e Diferenciais) com props (completed 2026-11-05)
 - [ ] **Phase 3: Formulário de Cadastro e Controle de Estado** - Implementação do formulário controlado com `useState`, validações, feedbacks e listagem em memória
 - [ ] **Phase 4: Responsividade, Polimento e Preparação da Apresentação** - Adaptação mobile completa, componente Footer e comentários explicativos no código
 
@@ -36,10 +36,10 @@ Plans:
   1. Componente `Header` exibe o nome/logo da arena e links funcionais de navegação suave por âncoras.
   2. Componente `Hero` exibe apresentação atrativa da arena com slogan e botão CTA direcionando ao cadastro.
   3. Componentes `Modalidades` e `Diferenciais` renderizam cards organizados para Beach Tennis, Futevôlei e Vôlei de Praia, além da infraestrutura esportiva.
-**Plans**: 1 plan
+**Plans**: 1/1 plans complete
 
 Plans:
-- [ ] 02-01-PLAN.md — Implementação dos componentes da Landing Page com props funcionais e navegação por âncoras
+- [x] 02-01-PLAN.md — Implementação dos componentes da Landing Page com props funcionais e navegação por âncoras
 
 ### Phase 3: Formulário de Cadastro e Controle de Estado
 **Goal**: Implementar o formulário de cadastro de clientes com inputs controlados via `useState`, validação de campos obrigatórios, tratamento de eventos (`onSubmit` com prevenção de recarregamento), feedback visual de sucesso/erro, limpeza automática e exibição dos clientes cadastrados em memória na sessão.
@@ -77,6 +77,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Setup da Base e Design System | 1/1 | Complete    | 2026-11-05 |
-| 2. Apresentação da Arena e Landing Page | 0/1 | Not started | - |
+| 2. Apresentação da Arena e Landing Page | 1/1 | Complete    | 2026-11-05 |
 | 3. Formulário de Cadastro e Controle de Estado | 0/1 | Not started | - |
 | 4. Responsividade, Polimento e Preparação | 0/1 | Not started | - |

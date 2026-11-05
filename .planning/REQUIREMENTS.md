@@ -7,10 +7,10 @@
 
 ### Apresentação e Identidade Visual (HOME)
 
-- [ ] **HOME-01**: Usuário visualiza a identificação da Arena Sunset com logotipo, cores da marca e slogan temático de esportes de areia
-- [ ] **HOME-02**: Usuário visualiza as modalidades esportivas oferecidas (Beach Tennis, Futevôlei e Vôlei de Praia) em cards interativos com detalhes
-- [ ] **HOME-03**: Usuário visualiza os diferenciais da arena (quadras cobertas, areia tratada padrão torneio, vestiários e iluminação noturna)
-- [ ] **HOME-04**: Usuário navega de forma suave entre as seções da página por meio dos links de âncora do Header
+- [x] **HOME-01**: Usuário visualiza a identificação da Arena Sunset com logotipo, cores da marca e slogan temático de esportes de areia
+- [x] **HOME-02**: Usuário visualiza as modalidades esportivas oferecidas (Beach Tennis, Futevôlei e Vôlei de Praia) em cards interativos com detalhes
+- [x] **HOME-03**: Usuário visualiza os diferenciais da arena (quadras cobertas, areia tratada padrão torneio, vestiários e iluminação noturna)
+- [x] **HOME-04**: Usuário navega de forma suave entre as seções da página por meio dos links de âncora do Header
 
 ### Cadastro de Clientes (FORM)
 
@@ -53,10 +53,10 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| HOME-01 | Phase 2 | Pending |
-| HOME-02 | Phase 2 | Pending |
-| HOME-03 | Phase 2 | Pending |
-| HOME-04 | Phase 2 | Pending |
+| HOME-01 | Phase 2 | Complete |
+| HOME-02 | Phase 2 | Complete |
+| HOME-03 | Phase 2 | Complete |
+| HOME-04 | Phase 2 | Complete |
 | FORM-01 | Phase 3 | Pending |
 | FORM-02 | Phase 3 | Pending |
 | FORM-03 | Phase 3 | Pending |
