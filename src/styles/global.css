@@ -114,6 +114,7 @@ input, select, textarea {
 /* ----------------------------------------------------------------------------
  * SEÇÃO PREVIEW DE CADASTRO (Fase 02 - Ancoragem para Fase 03)
  * ---------------------------------------------------------------------------- */
+.cadastro-secao,
 .cadastro-preview-secao {
   padding-top: var(--space-2xl);
   padding-bottom: var(--space-2xl);

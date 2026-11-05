@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import Modalidades from './components/Modalidades.jsx'
 import Diferenciais from './components/Diferenciais.jsx'
+import FormularioCadastro from './components/FormularioCadastro.jsx'
 
 /**
  * ==============================================================================
@@ -11,29 +12,63 @@ import Diferenciais from './components/Diferenciais.jsx'
  *
  * CONCEITOS IMPORTANTES PARA A DEFESA / APRESENTAÇÃO:
  *
- * 1. ARQUITETURA EM ÁRVORE DO REACT (Component Tree):
+ * 1. GERENCIAMENTO DE ESTADO CENTRALIZADO (State Management com useState):
+ *    O React opera sob o princípio da reatividade: quando o estado de um componente
+ *    muda, o React recalcula a renderização daquele componente e de seus filhos.
+ *    Aqui, o estado 'atletas' reside no topo da árvore de componentes (em 'App'),
+ *    permitindo que tanto o formulário quanto a listagem compartilhem a mesma
+ *    fonte de dados sem conflitos.
+ *
+ * 2. ELEVAÇÃO DE ESTADO (Lifting State Up):
+ *    Quando dois componentes irmãos precisam compartilhar dados (ex: o 'FormularioCadastro'
+ *    produz novos atletas e a 'ListaAtletas' precisa exibi-los), elevamos o estado para
+ *    o ancestral comum mais próximo ('App'). O componente pai provê:
+ *    - O estado atual ('atletas') como propriedade (prop) para o consumidor.
+ *    - Uma função manipuladora ('handleCadastrarAtleta') repassada como prop de retorno
+ *      (callback prop) para o produtor.
+ *
+ * 3. IMUTABILIDADE NO REACT:
+ *    Ao atualizar estados no React, NUNCA devemos modificar o array original diretamente
+ *    com métodos mutáveis como '.push()' ou '.splice()'. Em vez disso, geramos um novo
+ *    array utilizando o spread operator ('[novoAtleta, ...prev]'), garantindo que o React
+ *    detecte a alteração por comparação de referência e acione a re-renderização.
+ *
+ * 4. ARQUITETURA EM ÁRVORE DO REACT (Component Tree):
  *    No React, a interface é estruturada como uma árvore de componentes onde 'App'
  *    atua como o nó raiz (root node). Cada seção visual especializada (Header,
- *    Hero, Modalidades, Diferenciais) é um componente filho independente.
- *
- * 2. COMPOSIÇÃO DE INTERFACES COM JSX:
- *    Em vez de concentrar centenas de linhas de HTML em um único arquivo monolítico,
- *    o JSX nos permite compor componentes declarativamente como tags personalizadas:
- *    <Header />, <Hero />, <Modalidades />, <Diferenciais />.
- *
- * 3. SEPARAÇÃO DE RESPONSABILIDADES (Single Responsibility Principle):
- *    - Header: Gerencia identidade visual e navegação fixa com âncoras locais.
- *    - Hero: Apresenta a proposta de valor, slogan e chamadas para ação (CTAs).
- *    - Modalidades: Exibe dinamicamente o catálogo esportivo via props desestruturadas.
- *    - Diferenciais: Detalha a infraestrutura de ponta e vantagens competitivas.
- *    - #cadastro: Seção de ancoragem preparando o terreno para o formulário da Fase 3.
- *
- * 4. NAVEGAÇÃO SUAVE INTEGRADA:
- *    Todos os identificadores de âncoras ('#hero', '#modalidades', '#diferenciais',
- *    '#cadastro') coincidem com os atributos 'id' presentes nas respectivas seções.
+ *    Hero, Modalidades, Diferenciais, Formulario/Listagem) é um componente modular.
  * ==============================================================================
  */
 function App() {
+  // 1. Estado central de atletas cadastrados na sessão (demonstração didática inicial)
+  const [atletas, setAtletas] = useState([
+    {
+      id: 'atleta-demo-1',
+      nome: 'Mariana Souza Lima',
+      email: 'mariana.souza@praia.com.br',
+      telefone: '(88) 99745-1234',
+      modalidade: 'beach-tennis',
+      dataCadastro: '05/11/2026'
+    },
+    {
+      id: 'atleta-demo-2',
+      nome: 'Rodrigo Silveira Duarte',
+      email: 'rodrigo.fute@sunset.com',
+      telefone: '(88) 98821-5678',
+      modalidade: 'futevolei',
+      dataCadastro: '05/11/2026'
+    }
+  ])
+
+  /**
+   * Adiciona um novo atleta ao estado central preservando a imutabilidade
+   * @param {Object} novoAtleta - Objeto contendo dados do atleta recém-cadastrado
+   */
+  const handleCadastrarAtleta = (novoAtleta) => {
+    // Atualização funcional do estado com operador spread para imutabilidade
+    setAtletas((prev) => [novoAtleta, ...prev])
+  }
+
   return (
     <div className="app-arena-sunset">
       {/* 1. Cabeçalho Fixo com Navegação Suave */}
@@ -50,37 +85,75 @@ function App() {
         {/* Seção com Cards dos 4 Diferenciais da Infraestrutura (id="diferenciais") */}
         <Diferenciais />
 
-        {/* Seção de Ancoragem e Preparação para o Cadastro de Clientes (id="cadastro") */}
-        <section id="cadastro" className="cadastro-preview-secao">
+        {/* Seção Interativa de Cadastro de Atletas (id="cadastro") */}
+        <section id="cadastro" className="cadastro-secao">
           <div className="container">
-            <div className="cadastro-preview-card">
-              <div className="cadastro-preview-conteudo">
-                <div className="cadastro-preview-icone" aria-hidden="true">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="8.5" cy="7" r="4" />
-                    <line x1="20" y1="8" x2="20" y2="14" />
-                    <line x1="23" y1="11" x2="17" y2="11" />
-                  </svg>
-                </div>
-                <div>
-                  <span className="cadastro-preview-tag">Área de Membros</span>
-                  <h3 className="cadastro-preview-titulo">Cadastro de Atletas e Alunos</h3>
-                  <p className="cadastro-preview-texto">
-                    Faça seu cadastro para agendar horários, participar de turmas de Beach Tennis,
-                    Futevôlei e Vôlei de Praia, e vivenciar a melhor experiência esportiva na areia.
-                  </p>
-                </div>
-              </div>
+            {/* Componente Controlado de Formulário de Cadastro */}
+            <FormularioCadastro onCadastrarAtleta={handleCadastrarAtleta} />
 
-              <div className="cadastro-preview-aviso">
-                <span className="cadastro-preview-aviso-titulo">
-                  Área de Cadastro de Clientes - Fase 3
+            {/* Listagem preliminar do tracer vertical para validação de reatividade */}
+            <div style={{
+              marginTop: 'var(--space-xl)',
+              padding: 'var(--space-lg)',
+              backgroundColor: 'var(--color-surface)',
+              borderRadius: 'var(--radius-xl)',
+              border: '1px solid var(--color-border)',
+              maxWidth: '680px',
+              marginLeft: 'auto',
+              marginRight: 'auto'
+            }}>
+              <h4 style={{
+                margin: '0 0 var(--space-md) 0',
+                color: 'var(--color-text)',
+                fontSize: 'var(--font-size-md)',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}>
+                <span>Atletas Inscritos (Tracer Vertical)</span>
+                <span style={{
+                  fontSize: 'var(--font-size-xs)',
+                  backgroundColor: 'var(--color-primary-light)',
+                  color: 'var(--color-primary-dark)',
+                  padding: '2px 8px',
+                  borderRadius: 'var(--radius-full)'
+                }}>
+                  {atletas.length} {atletas.length === 1 ? 'atleta' : 'atletas'}
                 </span>
-                <span className="cadastro-preview-aviso-sub">
-                  O formulário interativo com validação e useState será integrado aqui.
-                </span>
-              </div>
+              </h4>
+              <ul style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--space-xs)'
+              }}>
+                {atletas.map((atleta) => (
+                  <li
+                    key={atleta.id}
+                    style={{
+                      padding: 'var(--space-sm) var(--space-md)',
+                      backgroundColor: 'var(--color-surface-sand)',
+                      borderRadius: 'var(--radius-md)',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      fontSize: 'var(--font-size-sm)'
+                    }}
+                  >
+                    <span style={{ fontWeight: 600, color: 'var(--color-text)' }}>
+                      {atleta.nome}
+                    </span>
+                    <span style={{
+                      color: 'var(--color-primary-dark)',
+                      textTransform: 'capitalize'
+                    }}>
+                      {atleta.modalidade.replace('-', ' ')}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>

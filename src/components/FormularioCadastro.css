@@ -1,0 +1,200 @@
+/**
+ * ==============================================================================
+ * ESTILIZAÇÃO: FormularioCadastro.css (Arena Sunset)
+ * ==============================================================================
+ *
+ * Utiliza estritamente os tokens de design (variáveis CSS) definidos em
+ * variables.css, alinhado à escala de 4px/8px e à paleta esportiva de areia.
+ * ==============================================================================
+ */
+
+.formulario-cadastro-container {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-xl);
+  max-width: 680px;
+  margin: 0 auto;
+  transition: box-shadow var(--transition-normal);
+}
+
+.formulario-cadastro-container:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* ----------------------------------------------------------------------------
+ * Cabeçalho do Formulário
+ * ---------------------------------------------------------------------------- */
+.formulario-cabecalho {
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.formulario-tag {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-sm);
+}
+
+.formulario-titulo {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: var(--line-height-tight);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.formulario-subtitulo {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+/* ----------------------------------------------------------------------------
+ * Estrutura do Formulário e Grupos de Campos
+ * ---------------------------------------------------------------------------- */
+.formulario-corpo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.label-campo {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+/* ----------------------------------------------------------------------------
+ * Seletores de Modalidade em Chips
+ * ---------------------------------------------------------------------------- */
+.chips-modalidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.chip-modalidade {
+  flex: 1 1 calc(33.333% - var(--space-sm));
+  min-width: 140px;
+  padding: 10px 14px;
+  background-color: var(--color-surface-sand);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.chip-modalidade:hover {
+  background-color: #EDE4DC;
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.chip-modalidade.chip-ativo {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+  font-weight: var(--font-weight-bold);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+/* ----------------------------------------------------------------------------
+ * Inputs de Texto
+ * ---------------------------------------------------------------------------- */
+.input-campo {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--color-surface-sand);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  outline: none;
+  transition: all var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.input-campo::placeholder {
+  color: #94A3B8;
+  font-size: var(--font-size-sm);
+}
+
+.input-campo:focus-visible {
+  background-color: var(--color-surface);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-border-focus);
+}
+
+/* ----------------------------------------------------------------------------
+ * Botão Principal CTA
+ * ---------------------------------------------------------------------------- */
+.btn-cadastrar-atleta {
+  width: 100%;
+  padding: 14px 24px;
+  margin-top: var(--space-sm);
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  box-shadow: var(--shadow-cta);
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn-cadastrar-atleta:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px -5px rgba(249, 115, 22, 0.45);
+}
+
+.btn-cadastrar-atleta:active {
+  transform: translateY(0);
+}
+
+/* ----------------------------------------------------------------------------
+ * Responsividade
+ * ---------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .formulario-cadastro-container {
+    padding: var(--space-lg);
+  }
+
+  .chips-modalidades {
+    flex-direction: column;
+  }
+
+  .chip-modalidade {
+    width: 100%;
+    min-width: 100%;
+  }
+}
